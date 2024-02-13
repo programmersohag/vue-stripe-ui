@@ -17,10 +17,12 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
-      stripeAPIToken: process.env.VUE_APP_STRIPETOKEN,
+      // stripeAPIToken: process.env.VUE_APP_STRIPETOKEN,
+      stripeAPIToken: 'pk_test_moLgxyCxIyJknqpKR1BV7TvJ',
       stripe: '',
       token: null,
       sessionId: null,
@@ -81,7 +83,7 @@ export default {
     // get the token
     this.token = localStorage.getItem('token');
     // get all the cart items
-    this.stripe = Stripe(this.stripeAPIToken);
+    this.stripe = window.Stripe(this.stripeAPIToken);
     this.getAllItems();
   },
 };
